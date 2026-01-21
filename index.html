@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rescue Oracle</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 20px; background: #f4f4f9; }
+        .card { background: white; border-radius: 15px; padding: 20px; max-width: 400px; margin: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        img { width: 100%; border-radius: 10px; }
+        button { background: #6a5acd; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="card" id="oracle-card">
+        <h1>Loading your animal guide...</h1>
+    </div>
+
+    <script>
+        const rescues = [
+            {
+                name: "Mochi",
+                wisdom: "Rest is just as important as the hunt.",
+                story: "Found behind a bakery, Mochi now teaches everyone the art of the nap.",
+                fact: "Cats sleep for about 12-16 hours a day!",
+                link: "https://localshelter.com/foster"
+            },
+            {
+                name: "Buster",
+                wisdom: "Every walk is a new adventure.",
+                story: "Buster spent 2 years in a shelter before finding his forever home.",
+                fact: "Dogs' noses are at least 10,000 times more sensitive than ours.",
+                link: "https://localshelter.com/donate"
+            }
+            // You can add dozens more here!
+        ];
+
+        function showRandom() {
+            const animal = rescues[Math.floor(Math.random() * rescues.length)];
+            document.getElementById('oracle-card').innerHTML = `
+                <h2>${animal.name}'s Wisdom</h2>
+                <p><em>"${animal.wisdom}"</em></p>
+                <hr>
+                <p><strong>Backstory:</strong> ${animal.story}</p>
+                <p><strong>Did you know?</strong> ${animal.fact}</p>
+                <a href="${animal.link}"><button>Help a Pet Like Me</button></a>
+            `;
+        }
+
+        window.onload = showRandom;
+    </script>
+</body>
+</html>
